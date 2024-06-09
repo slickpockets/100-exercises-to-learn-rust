@@ -1,10 +1,13 @@
 // TODO: add the necessary `Clone` implementations (and invocations)
 //  to get the code to compile.
 
-pub fn summary(ticket: Ticket) -> (Ticket, Summary) {
-    (ticket, ticket.summary())
-}
 
+
+pub fn summary(ticket: Ticket) -> (Ticket, Summary) {
+    let t = ticket.clone();
+    (ticket, t.summary())
+}
+#[derive(Clone)]
 pub struct Ticket {
     pub title: String,
     pub description: String,
@@ -20,6 +23,7 @@ impl Ticket {
     }
 }
 
+#[derive(Clone)]
 pub struct Summary {
     pub title: String,
     pub status: String,
